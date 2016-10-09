@@ -14,7 +14,7 @@ public class ProviderRepository {
     EntityManager em;
 
     public List<Provider> findAllProviders(){
-        Query query = em.createQuery("SELECT e.id, e.providerName FROM Provider e");
+        Query query = em.createQuery("SELECT e FROM Provider e");
         return (List<Provider>) query.getResultList();
     }
 

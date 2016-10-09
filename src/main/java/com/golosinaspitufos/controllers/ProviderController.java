@@ -1,5 +1,6 @@
 package com.golosinaspitufos.controllers;
 
+import com.golosinaspitufos.dto.ProvidersDTO;
 import com.golosinaspitufos.model.Provider;
 import com.golosinaspitufos.services.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,13 @@ public class ProviderController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Provider> getProviders(){
+    public ProvidersDTO getProviders(){
         List<Provider> providerList = providerService.findAllProviders();
-//        for (Provider p : providerList){
-//            System.out.println("Andres. Provider name: " +p.getProviderName());
-//        }
-        return providerList;
+        for (Provider p : providerList){
+            System.out.println("Andres. Provider name: " +p.getProviderName());
+        }
+
+        return ProvidersDTO.mapFromProvidersSetEntity(providerList);
     }
 
 }
