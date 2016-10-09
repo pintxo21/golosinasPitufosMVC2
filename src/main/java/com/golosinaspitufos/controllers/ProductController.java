@@ -1,5 +1,6 @@
 package com.golosinaspitufos.controllers;
 
+import com.golosinaspitufos.dto.ProductsDTO;
 import com.golosinaspitufos.model.Product;
 import com.golosinaspitufos.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,12 @@ public class ProductController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Product> getProducts(){
+    public ProductsDTO getProducts(){
         List<Product> productList = productsService.findAllProducts();
         for (Product p : productList){
             System.out.println("Andres. Provider name: " + p.getProductName());
         }
-        return productList;
+
+        return ProductsDTO.mapFromProductSetEntity(productList);
     }
 }
