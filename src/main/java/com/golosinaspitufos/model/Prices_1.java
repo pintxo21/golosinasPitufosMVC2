@@ -14,12 +14,10 @@ import javax.persistence.*;
                 joinColumns = @JoinColumn(name = "provider_id"))})
 public class Prices_1 implements java.io.Serializable {
 
-    @EmbeddedId
     private PricesId pk = new PricesId();
-
-    @Column(name = "price")
     private float price;
 
+    @EmbeddedId
     public PricesId getPk() {
         return pk;
     }
@@ -28,6 +26,7 @@ public class Prices_1 implements java.io.Serializable {
         this.pk = pk;
     }
 
+    @Column(name = "price")
     public float getPrice() {
         return price;
     }
@@ -72,6 +71,14 @@ public class Prices_1 implements java.io.Serializable {
 
     public int hashCode() {
         return (getPk() != null ? getPk().hashCode() : 0);
+    }
+
+    @Override
+    public String toString(){
+        return "PriceController [Product_name=" + getProduct().getProductName()
+                + " ,Provider_name=" + getProvider().getProviderName()
+                + " ,Price=" + price
+                + "]";
     }
 
 }

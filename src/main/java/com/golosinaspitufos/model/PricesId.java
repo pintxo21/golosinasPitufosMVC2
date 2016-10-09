@@ -2,6 +2,7 @@ package com.golosinaspitufos.model;
 
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /**
  * Created by pin69 on 05-Oct-16.
@@ -10,12 +11,10 @@ import javax.persistence.ManyToOne;
 @Embeddable
 public class PricesId implements java.io.Serializable {
 
-    @ManyToOne
     private Product product;
-
-    @ManyToOne
     private Provider provider;
 
+    @ManyToOne
     public Product getProduct() {
         return product;
     }
@@ -24,6 +23,7 @@ public class PricesId implements java.io.Serializable {
         this.product = product;
     }
 
+    @ManyToOne
     public Provider getProvider() {
         return provider;
     }

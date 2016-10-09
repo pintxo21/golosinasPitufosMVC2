@@ -14,35 +14,16 @@ import java.util.Set;
 @Table(name = "products")
 public class Product implements java.io.Serializable {
 
+    private int id;
+    private String productCategory;
+    private String productSubcategory;
+    private String productName;
+    private String productDescription;
+    private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
-    private int id;
-
-    @Column(name = "product_category")
-    private String productCategory;
-
-    @Column(name = "product_subcategory")
-    private String productSubcategory;
-
-    @Column(name = "product_name")
-    private String productName;
-
-    @Column(name = "product_description")
-    private String productDescription;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.product", cascade=CascadeType.ALL)
-    private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
-
-
-    public Set<Prices_1> getPrices_1(){
-        return prices_1;
-    }
-
-    public void setPrices_1(Set<Prices_1> prices_1){
-        this.prices_1 = prices_1;
-    }
-
     public int getId() {
         return id;
     }
@@ -51,6 +32,7 @@ public class Product implements java.io.Serializable {
         this.id = id;
     }
 
+    @Column(name = "product_category")
     public String getProductCategory() {
         return productCategory;
     }
@@ -59,6 +41,7 @@ public class Product implements java.io.Serializable {
         this.productCategory = productCategory;
     }
 
+    @Column(name = "product_subcategory")
     public String getProductSubcategory() {
         return productSubcategory;
     }
@@ -67,6 +50,7 @@ public class Product implements java.io.Serializable {
         this.productSubcategory = productSubcategory;
     }
 
+    @Column(name = "product_name")
     public String getProductName() {
         return productName;
     }
@@ -75,6 +59,7 @@ public class Product implements java.io.Serializable {
         this.productName = productName;
     }
 
+    @Column(name = "product_description")
     public String getProductDescription() {
         return productDescription;
     }
@@ -83,11 +68,20 @@ public class Product implements java.io.Serializable {
         this.productDescription = productDescription;
     }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.product", cascade=CascadeType.ALL)
+    public Set<Prices_1> getPrices_1(){
+        return prices_1;
+    }
+
+    public void setPrices_1(Set<Prices_1> prices_1){
+        this.prices_1 = prices_1;
+    }
+
     @Override
     public String toString() {
         return "ProductController [id=" + id + ", productName=" + productName
                 + ", productCategory=" + productCategory + ", productSubcategory=" + productSubcategory
-                + ", productDescription=" + productDescription
+                + ", productDescription=" + productDescription + ", prices=" + prices_1
                 + "]";
     }
 
