@@ -1,6 +1,6 @@
 package com.golosinaspitufos.controllers;
 
-import com.golosinaspitufos.model.Products;
+import com.golosinaspitufos.model.Product;
 import com.golosinaspitufos.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by pin69 on 05-Oct-16.
@@ -26,10 +27,10 @@ public class ProductController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Products> getProducts(){
-        List<Products> productList = productsService.findAllProviders();
-        for (Products p : productList){
-            System.out.println("Andres. Providers name: " + p.getProductName());
+    public List<Product> getProducts(){
+        List<Product> productList = productsService.findAllProducts();
+        for (Product p : productList){
+            System.out.println("Andres. Provider name: " + p.getProductName());
         }
         return productList;
     }

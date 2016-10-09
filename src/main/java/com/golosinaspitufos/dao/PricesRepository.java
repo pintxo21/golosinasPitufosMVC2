@@ -10,7 +10,7 @@
 ////    //List<Prices> findByProviderArchived();
 ////}
 //
-//import com.golosinaspitufos.model.Providers;
+//import com.golosinaspitufos.model.Provider;
 //import org.springframework.stereotype.Repository;
 //
 //import javax.persistence.EntityManager;
@@ -24,9 +24,9 @@
 //    @PersistenceContext
 //    EntityManager em;
 //
-//    public List<Providers> findAllPrices(){
+//    public List<Provider> findAllPrices(){
 //        Query query = em.createQuery("SELECT e FROM Prices e");
-//        return (List<Providers>) query.getResultList();
+//        return (List<Provider>) query.getResultList();
 //    }
 //
 //}

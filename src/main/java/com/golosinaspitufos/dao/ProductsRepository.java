@@ -1,7 +1,7 @@
 package com.golosinaspitufos.dao;//package com.golosinaspitufos.model;
 
 
-import com.golosinaspitufos.model.Products;
+import com.golosinaspitufos.model.Product;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,9 +15,9 @@ public class ProductsRepository {
     @PersistenceContext
     EntityManager em;
 
-    public List<Products> findAllProducts(){
-        Query query = em.createQuery("SELECT e FROM Products e");
-        return (List<Products>) query.getResultList();
+    public List<Product> findAllProducts(){
+        Query query = em.createQuery("SELECT e FROM Product e");
+        return (List<Product>) query.getResultList();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.golosinaspitufos.controllers;
 
-import com.golosinaspitufos.model.Providers;
+import com.golosinaspitufos.model.Provider;
 import com.golosinaspitufos.services.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,12 +25,12 @@ public class ProviderController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Providers> getProviders(){
-        List<Providers> providersList = providerService.findAllProviders();
-        for (Providers p : providersList){
-            System.out.println("Andres. Providers name: " +p.getProviderName());
-        }
-        return providersList;
+    public List<Provider> getProviders(){
+        List<Provider> providerList = providerService.findAllProviders();
+//        for (Provider p : providerList){
+//            System.out.println("Andres. Provider name: " +p.getProviderName());
+//        }
+        return providerList;
     }
 
 }

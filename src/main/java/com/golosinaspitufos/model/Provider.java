@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="providers")
-public class Providers implements java.io.Serializable {
+public class Provider implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class Providers implements java.io.Serializable {
     @Column(name="provider_archived")
     private int providerArchived = 0;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.providers")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.provider")
     private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
 
     public Set<Prices_1> getPrices_1() {

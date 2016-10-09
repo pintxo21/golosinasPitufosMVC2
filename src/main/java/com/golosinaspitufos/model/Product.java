@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "products")
-public class Products implements java.io.Serializable {
+public class Product implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +31,7 @@ public class Products implements java.io.Serializable {
     @Column(name = "product_description")
     private String productDescription;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.products", cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.product", cascade=CascadeType.ALL)
     private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
 
 
@@ -82,5 +82,14 @@ public class Products implements java.io.Serializable {
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
+
+    @Override
+    public String toString() {
+        return "ProductController [id=" + id + ", productName=" + productName
+                + ", productCategory=" + productCategory + ", productSubcategory=" + productSubcategory
+                + ", productDescription=" + productDescription
+                + "]";
+    }
+
 }
 

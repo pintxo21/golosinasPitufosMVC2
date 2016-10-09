@@ -8,9 +8,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "prices_1")
 @AssociationOverrides({
-        @AssociationOverride(name = "pk.products",
+        @AssociationOverride(name = "pk.product",
                 joinColumns = @JoinColumn(name = "product_id")),
-        @AssociationOverride(name = "pk.providers",
+        @AssociationOverride(name = "pk.provider",
                 joinColumns = @JoinColumn(name = "provider_id"))})
 public class Prices_1 implements java.io.Serializable {
 
@@ -37,21 +37,21 @@ public class Prices_1 implements java.io.Serializable {
     }
 
     @Transient
-    public Products getProducts() {
-        return getPk().getProducts();
+    public Product getProduct() {
+        return getPk().getProduct();
     }
 
-    public void setProducts(Products products) {
-        getPk().setProducts(products);
+    public void setProduct(Product product) {
+        getPk().setProduct(product);
     }
 
     @Transient
-    public Providers getProvider() {
-        return getPk().getProviders();
+    public Provider getProvider() {
+        return getPk().getProvider();
     }
 
-    public void setProvider(Providers providers) {
-        getPk().setProviders(providers);
+    public void setProvider(Provider provider) {
+        getPk().setProvider(provider);
     }
 
 
@@ -73,6 +73,5 @@ public class Prices_1 implements java.io.Serializable {
     public int hashCode() {
         return (getPk() != null ? getPk().hashCode() : 0);
     }
-
 
 }
