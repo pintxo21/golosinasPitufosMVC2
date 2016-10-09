@@ -13,10 +13,7 @@ public class LoginController {
     @RequestMapping(value = "/login")
     public String home() {
         System.out.println("Andres: we are her!!!!!!" );
-
-
-
-        return "login";
+        return "login2";
     }
 
 }
