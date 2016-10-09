@@ -1,10 +1,12 @@
 package com.golosinaspitufos.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="providers")
-public class Provider {
+public class Providers implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +24,25 @@ public class Provider {
 
     @Column(name="provider_archived")
     private int providerArchived = 0;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.providers")
+    private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
+
+    public Set<Prices_1> getPrices_1() {
+        return prices_1;
+    }
+
+    public void setPrices_1(Set<Prices_1> prices_1) {
+        this.prices_1 = prices_1;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getProviderName() {
         return providerName;

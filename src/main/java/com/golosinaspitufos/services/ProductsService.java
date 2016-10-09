@@ -1,7 +1,7 @@
 package com.golosinaspitufos.services;
 
-import com.golosinaspitufos.dao.ProviderRepository;
-import com.golosinaspitufos.model.Providers;
+import com.golosinaspitufos.dao.ProductsRepository;
+import com.golosinaspitufos.model.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,17 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by pin69 on 02-Oct-16.
+ * Created by pin69 on 05-Oct-16.
  */
+
+
 @Service
-public class ProviderService {
+public class ProductsService {
 
     @Autowired
-    ProviderRepository providerRepository;
+    ProductsRepository productsRepository;
 
     @Transactional(readOnly = true)
-    public List<Providers> findAllProviders(){
-        List<Providers> pv = providerRepository.findAllProviders();
+    public List<Products> findAllProviders(){
+        List<Products> pv = productsRepository.findAllProducts();
         return pv;
     }
 

@@ -1,7 +1,7 @@
 package com.golosinaspitufos.controllers;
 
-import com.golosinaspitufos.model.Providers;
-import com.golosinaspitufos.services.ProviderService;
+import com.golosinaspitufos.model.Products;
+import com.golosinaspitufos.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import java.util.List;
 
 /**
- * Created by pin69 on 02-Oct-16.
+ * Created by pin69 on 05-Oct-16.
  */
+
 @Controller
-@RequestMapping("provider")
-public class ProviderController {
+@RequestMapping("product")
+public class ProductController {
 
     @Autowired
-    private ProviderService providerService;
+    private ProductsService productsService;
 
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Providers> getProviders(){
-        List<Providers> providersList = providerService.findAllProviders();
-        for (Providers p : providersList){
-            System.out.println("Andres. Providers name: " +p.getProviderName());
+    public List<Products> getProducts(){
+        List<Products> productList = productsService.findAllProviders();
+        for (Products p : productList){
+            System.out.println("Andres. Providers name: " + p.getProductName());
         }
-        return providersList;
+        return productList;
     }
-
 }

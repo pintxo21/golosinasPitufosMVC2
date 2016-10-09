@@ -1,6 +1,9 @@
 package com.golosinaspitufos.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by pin69 on 18-Sep-16.
@@ -9,7 +12,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
-public class Products {
+public class Products implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +30,18 @@ public class Products {
 
     @Column(name = "product_description")
     private String productDescription;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.products", cascade=CascadeType.ALL)
+    private Set<Prices_1> prices_1 = new HashSet<Prices_1>(0);
+
+
+    public Set<Prices_1> getPrices_1(){
+        return prices_1;
+    }
+
+    public void setPrices_1(Set<Prices_1> prices_1){
+        this.prices_1 = prices_1;
+    }
 
     public int getId() {
         return id;
@@ -68,3 +83,4 @@ public class Products {
         this.productDescription = productDescription;
     }
 }
+

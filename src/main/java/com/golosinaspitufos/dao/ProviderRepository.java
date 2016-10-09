@@ -1,7 +1,7 @@
 package com.golosinaspitufos.dao;
 
 
-import com.golosinaspitufos.model.Provider;
+import com.golosinaspitufos.model.Providers;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,9 +15,9 @@ public class ProviderRepository {
     @PersistenceContext
     EntityManager em;
 
-    public List<Provider> findAllProviders(){
+    public List<Providers> findAllProviders(){
         Query query = em.createQuery("SELECT e FROM Provider e");
-        return (List<Provider>) query.getResultList();
+        return (List<Providers>) query.getResultList();
     }
 
 }
