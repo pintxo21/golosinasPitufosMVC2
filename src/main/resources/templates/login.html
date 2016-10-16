@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" >
     <title>Spring Framework Guru</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
-<h1>Hello</h1>
-<h2>Fellow Spring Framework Gurus!!!</h2>
+<body class="security-app">
+<div class="details">
+    <h2>Spring Security - App</h2>
+</div>
+
+<form th:action="@{/login}" method="post">
+
+    <div class="lc-block">
+        <div>
+            <input type="text" class="style-4" name="username"
+                   placeholder="User Name" />
+        </div>
+        <div>
+            <input type="password" class="style-4" name="password"
+                   placeholder="Password" />
+        </div>
+        <div>
+            <input type="submit" value="Sign In" class="button red small" />
+        </div>
+        <th:if test="${param.error ne null}">
+            <div class="alert-danger">Invalid username and password.</div>
+        </th:if>
+        <th:if test="${param.logout ne null}">
+            <div class="alert-normal">You have been logged out.</div>
+        </th:if>
+    </div>
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
+
+    <!--<p th:if="${loginError}">Wrong user or password</p>-->
+    <!--<form th:action="@{/login}" method="post">-->
+        <!--<label for="j_username">Username</label>:-->
+        <!--<input type="text" id="j_username" name="j_username" /> <br />-->
+        <!--<label for="j_password">Password</label>:-->
+        <!--<input type="password" id="j_password" name="j_password" /> <br />-->
+        <!--<input type="submit" value="Log in" />-->
+        <!--<input type="hidden" name="${_csrf.parameterName}"-->
+        <!--value="${_csrf.token}" />-->
+    <!--</form>-->
+
 </body>
 </html>

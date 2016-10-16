@@ -35,7 +35,7 @@ public class JPAConfiguration {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.golosinaspitufos.model"});
+        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.golosinaspitufos.model","com.golosinaspitufos.security.dao"});
         entityManagerFactoryBean.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
