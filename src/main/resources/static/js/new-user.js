@@ -5,8 +5,6 @@ angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor'
             console.log('Creating user with username ' + $scope.vm.username + ' and password ' + $scope.vm.password);
 
             $scope.vm.submitted = true;
-            $scope.vm.errorMessages = [{description: 'this is a test'}];
-
 
             if ($scope.form.$invalid) {
                 return;

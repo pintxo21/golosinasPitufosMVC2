@@ -28,7 +28,7 @@ angular.module('common', ['ngMessages'])
             // link: function (scope, element, attrs) {
             //     scope.extraStyles = attrs.extraStyles;
             // },
-            templateUrl: '/error/error-messages2.html'
+            templateUrl: '/staticTemplates/error/error-messages2.html'
         }
     });
 

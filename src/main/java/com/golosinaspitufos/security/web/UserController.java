@@ -70,4 +70,5 @@ public class UserController {
 //        LOGGER.error(exc.getMessage(), exc);
         return new ResponseEntity<>(exc.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
 }
