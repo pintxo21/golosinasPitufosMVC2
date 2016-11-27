@@ -1,14 +1,23 @@
 
 angular.module('editableTableWidgets', [])
-    .directive('ttErrorMessages', function() {
-        return {
-            restrict: 'E',
-            link: function(scope, element, attrs) {
-                scope.extraStyles = attrs.extraStyles;
-            },
-            templateUrl: '/resources/public/partials/error-messages.html'
-        }
-    })
+    // .directive('errorMessages', function () {
+    //     return {
+    //         restrict: 'E',
+    //         link: function (scope, element, attrs) {
+    //             scope.extraStyles = attrs.extraStyles;
+    //         },
+    //         templateUrl: 'error-messages2.html'
+    //     }
+    // })
+    // .directive('ttErrorMessages', function() {
+    //     return {
+    //         restrict: 'E',
+    //         link: function(scope, element, attrs) {
+    //             scope.extraStyles = attrs.extraStyles;
+    //         },
+    //         templateUrl: '/resources/public/partials/error-messages2.html'
+    //     }
+    // })
     .directive('ttDatePicker', ['$timeout', function($timeout) {
         return {
             require: 'ngModel',

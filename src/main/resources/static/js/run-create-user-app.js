@@ -6,11 +6,11 @@
 
 require.config({
     paths: {
-        angular: '../../bower_components/angular/angular',
-        angularMessages: '../../bower_components/angular-messages/angular-messages',
-        csrfInterceptor: '../../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
-        lodash: "../../bower_components/lodash/dist/lodash",
-        editableTableWidgets: 'editable-table-widgets',
+        angular: '../bower_components/angular/angular',
+        angularMessages: '../bower_components/angular-messages/angular-messages',
+        csrfInterceptor: '../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
+        lodash: "../bower_components/lodash/dist/lodash",
+        //editableTableWidgets: 'editable-table-widgets',
         common: 'common',
         createUserApp: 'new-user'
     },
@@ -28,7 +28,8 @@ require.config({
             deps: ['angular', 'lodash']
         },
         common: {
-          deps: ['angular', 'csrfInterceptor', 'angularMessages','editableTableWidgets']
+          // deps: ['angular', 'csrfInterceptor', 'angularMessages', 'editableTableWidgets']
+            deps: ['angular', 'csrfInterceptor', 'angularMessages']
         },
         createUserApp: {
             deps: [ 'common']

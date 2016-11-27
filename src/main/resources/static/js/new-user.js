@@ -1,10 +1,12 @@
-angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor', 'editableTableWidgets'])
+angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor'])
     .controller('NewUserCtrl', ['$scope', '$http', function ($scope, $http) {
 
         $scope.createUser = function () {
             console.log('Creating user with username ' + $scope.vm.username + ' and password ' + $scope.vm.password);
 
             $scope.vm.submitted = true;
+            $scope.vm.errorMessages = [{description: 'this is a test'}];
+
 
             if ($scope.form.$invalid) {
                 return;
@@ -12,13 +14,13 @@ angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor'
 
             var postData = {
                 username: $scope.vm.username,
-                plainTextPassword: $scope.vm.password,
-                email: $scope.vm.email
+                password: $scope.vm.password,
+                passwordConfirm: $scope.vm.confirmPassword
             };
 
             $http({
                 method: 'POST',
-                url: '/user',
+                url: '/registration',
                 data: postData,
                 headers: {
                     "Content-Type": "application/json",
@@ -27,7 +29,8 @@ angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor'
             })
             .then(function (response) {
                 if (response.status == 200) {
-                    $scope.login($scope.vm.userName, $scope.vm.password);
+                    console.log("New user created");
+                    //$scope.login($scope.vm.userName, $scope.vm.password);
                 }
                 else {
                     $scope.vm.errorMessages = [];

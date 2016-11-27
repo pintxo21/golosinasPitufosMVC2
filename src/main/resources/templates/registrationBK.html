@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Registration</title>
+
+    <!--<meta name="_csrf" content="${_csrf.token}"/>-->
+    <!--&lt;!&ndash; default header name is X-CSRF-TOKEN &ndash;&gt;-->
+    <!--<meta name="_csrf_header" content="${_csrf.headerName}"/>-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/common.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="container">
+    <form method="POST" modelAttribute="userForm" class="form-signin">
+        <h2 class="form-signin-heading">Create your account</h2>
+        <bind path="username">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <input type="text" path="username" class="form-control" placeholder="Username"
+                       autofocus="true"/>
+                <errors path="username"></errors>
+            </div>
+        </bind>
+
+        <bind path="password">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <input type="password" path="password" class="form-control" placeholder="Password"/>
+                <errors path="password"></errors>
+            </div>
+        </bind>
+
+        <bind path="passwordConfirm">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <input type="password" path="passwordConfirm" class="form-control"
+                       placeholder="Confirm your password"/>
+                <errors path="passwordConfirm"></errors>
+            </div>
+        </bind>
+        <input type="hidden" id="csrf-token" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <!--<input type="hidden" id= "csrf-token" th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />-->
+        <!--<input type="hidden" id= "csrf-token" name="${_csrf.parameterName}" content="${_csrf.token}" />-->
+    </form>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
