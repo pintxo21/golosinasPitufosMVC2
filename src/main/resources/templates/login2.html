@@ -30,8 +30,15 @@
                 <fieldset class="pure-group">
                     <legend>Log In</legend>
                     <div class="form-field">
-                        <input type="text" ng-focus="focus('username')"  ng-blur="blur('username')" ng-model="vm.username"
-                               name="username" class="pure-input-1" placeholder="Username" required="" ng-minlength="6"/>
+                        <input type="text"
+                               ng-focus="focus('username')"
+                               ng-blur="blur('username')"
+                               ng-model="vm.username"
+                               name="username"
+                               class="pure-input-1"
+                               placeholder="Username"
+                               required=""
+                               ng-minlength="6"/>
 
                         <div class="error-messages" ng-show="isMessagesVisible('username')" ng-messages="form.username.$error">
                             <div ng-message="required">The username is mandatory</div>

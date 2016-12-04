@@ -20,7 +20,6 @@ angular.module('common', ['ngMessages'])
             return fieldWithFocus === fieldName || $scope.vm.submitted;
         };
 
-
     }])
     .directive('myErrorMessages', function () {
         return {
@@ -30,5 +29,19 @@ angular.module('common', ['ngMessages'])
             // },
             templateUrl: '/staticTemplates/error/error-messages2.html'
         }
-    });
+    })
+
+    .directive('checkPasswordsMatch', function () {
+        return {
+            require: 'ngModel',
+            link: function (scope, elm, attrs, ngModel) {
+                ngModel.$validators.checkPasswordsMatch = function (modelValue, viewValue) {
+                    if (scope.vm && scope.vm.password && viewValue) {
+                        return scope.vm.password === viewValue;
+                    }
+                    return true;
+                };
+            }
+        };
+    });;
 

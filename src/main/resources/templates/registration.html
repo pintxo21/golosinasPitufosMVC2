@@ -26,7 +26,8 @@
                    class="form-control"
                    placeholder="Username"
                    ng-minlength="6"/>
-            <div class="error-messages" ng-show="isMessagesVisible('username')"
+            <div class="error-messages"
+                 ng-show="isMessagesVisible('username')"
                  ng-messages="form.username.$error">
                 <div ng-message="required">The username is mandatory</div>
                 <div ng-message="minlength">must have minimum 6 characters</div>
@@ -43,7 +44,6 @@
                    placeholder="Password"
                    ng-minlength="6"
                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"/>
-
             <div class="error-messages" ng-show="isMessagesVisible('password')"
                  ng-messages="form.password.$error">
                 <div ng-message="required">The password is mandatory</div>
@@ -61,8 +61,8 @@
                    class="form-control"
                    placeholder="Confirm your password"
                    ng-minlength="6"
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"/>
-                   <!--check-passwords-match/>-->
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                   check-passwords-match=""/>
 
             <div class="error-messages" ng-show="isMessagesVisible('confirmPassword')"
                  ng-messages="form.confirmPassword.$error" >
