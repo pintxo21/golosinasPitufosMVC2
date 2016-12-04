@@ -29,7 +29,6 @@ angular.module('newUserApp', ['common', 'spring-security-csrf-token-interceptor'
                 if (response.status == 200) {
                     console.log("New user created");
                     window.location.replace('/index.html');
-                    //$scope.login($scope.vm.userName, $scope.vm.password);
                 }
                 else {
                     $scope.vm.errorMessages = [];

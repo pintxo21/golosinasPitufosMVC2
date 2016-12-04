@@ -7,12 +7,10 @@
 require.config({
     paths: {
         angular: '../bower_components/angular/angular',
-        angularMessages: '../bower_components/angular-messages/angular-messages',
-        csrfInterceptor: '../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         lodash: "../bower_components/lodash/dist/lodash",
-        //editableTableWidgets: 'editable-table-widgets',
+        csrfInterceptor: '../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         common: 'common',
-        loginApp: 'login'
+        providerApp: 'provider'
     },
     shim: {
         angular: {
@@ -21,21 +19,15 @@ require.config({
         csrfInterceptor: {
             deps: ['angular']
         },
-        angularMessages: {
-            deps: ['angular']
-        },
-        editableTableWidgets: {
-            deps: ['angular', 'lodash']
-        },
         common: {
-            deps: ['angular', 'csrfInterceptor', 'angularMessages']
+            deps: ['angular', 'csrfInterceptor']
         },
-        loginApp: {
+        providerApp: {
             deps: [ 'common']
         }
     }
 });
 
-require(['loginApp'], function () {
-    angular.bootstrap(document.getElementById('loginApp'), ['loginApp']);
+require(['providerApp'], function () {
+    angular.bootstrap(document.getElementById('providerApp'), ['providerApp']);
 });
