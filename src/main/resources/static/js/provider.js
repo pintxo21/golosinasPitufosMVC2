@@ -29,4 +29,5 @@ angular.module('providerApp', ['spring-security-csrf-token-interceptor'])
             });
         };
 
+        //comment
     }]);
