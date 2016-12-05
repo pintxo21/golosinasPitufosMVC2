@@ -18,4 +18,11 @@ public class ProviderRepository {
         return (List<Provider>) query.getResultList();
     }
 
+    public Provider findProvider(Long id){
+        return em.find(Provider.class,id);
+    }
+
+    public Provider save(Provider provider) {
+        return em.merge(provider);
+    }
 }

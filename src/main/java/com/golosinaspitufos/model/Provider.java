@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="providers")
 public class Provider implements java.io.Serializable {
 
-    private int id;
+    private Long id;
     private String providerName;
     private String providerAddress;
     private String providerPhone;
@@ -18,11 +18,11 @@ public class Provider implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="provider_id")
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

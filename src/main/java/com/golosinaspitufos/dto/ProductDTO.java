@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class ProductDTO {
 
-    private int id;
+    private Long id;
     private String productCategory;
     private String productSubcategory;
     private String productName;
@@ -19,7 +19,7 @@ public class ProductDTO {
     private Set<ProductPriceDTO> prices = new HashSet<ProductPriceDTO>(0);
 
 
-    public ProductDTO(int id, String productCategory, String productSubcategory, String productName,
+    public ProductDTO(Long id, String productCategory, String productSubcategory, String productName,
                       String productDescription, Set<ProductPriceDTO> prices) {
         this.id = id;
         this.productCategory = productCategory;
@@ -40,11 +40,11 @@ public class ProductDTO {
         , product.getProductName(), product.getProductDescription(), productPriceDTOs);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

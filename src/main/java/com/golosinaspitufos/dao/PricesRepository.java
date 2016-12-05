@@ -1,32 +1,34 @@
-//package com.golosinaspitufos.dao;//package com.golosinaspitufos.model;
-////
-////import org.springframework.data.repository.CrudRepository;
-////
-/////**
-//// * Created by pin69 on 18-Sep-16.
-//// */
-////public interface PricesRepository extends CrudRepository<Prices, Integer> {
-////
-////    //List<Prices> findByProviderArchived();
-////}
-//
-//import com.golosinaspitufos.model.Provider;
-//import org.springframework.stereotype.Repository;
-//
-//import javax.persistence.EntityManager;
-//import javax.persistence.PersistenceContext;
-//import javax.persistence.Query;
-//import java.util.List;
-//
-//@Repository
-//public class PricesRepository {
-//
-//    @PersistenceContext
-//    EntityManager em;
-//
-//    public List<Provider> findAllPrices(){
-//        Query query = em.createQuery("SELECT e FROM Prices e");
-//        return (List<Provider>) query.getResultList();
-//    }
-//
-//}
+package com.golosinaspitufos.dao;
+
+import com.golosinaspitufos.model.PricesId;
+import com.golosinaspitufos.model.Prices_1;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+@Repository
+public class PricesRepository {
+
+    @PersistenceContext
+    EntityManager em;
+
+    @Autowired
+    ProductsRepository productsRepository;
+
+    @Autowired
+    ProviderRepository providerRepository;
+
+    public Prices_1 findPrices(Long productId, Long providerId){
+        PricesId pricesId = new PricesId();
+        pricesId.setProduct(productsRepository.findProduct(productId));
+        pricesId.setProvider(providerRepository.findProvider(providerId));
+        return em.find (Prices_1.class,pricesId);
+    }
+
+    public Prices_1 save(Prices_1 prices) {
+        return em.merge(prices);
+    }
+
+}

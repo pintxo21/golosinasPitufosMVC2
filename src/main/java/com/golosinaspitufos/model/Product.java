@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "products")
 public class Product implements java.io.Serializable {
 
-    private int id;
+    private Long id;
     private String productCategory;
     private String productSubcategory;
     private String productName;
@@ -24,11 +24,11 @@ public class Product implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
