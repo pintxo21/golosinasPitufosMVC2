@@ -10,6 +10,7 @@ require.config({
         lodash: "../bower_components/lodash/dist/lodash",
         csrfInterceptor: '../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         common: 'common',
+        providerService: 'provider-service',
         providerApp: 'provider'
     },
     shim: {
@@ -22,8 +23,11 @@ require.config({
         common: {
             deps: ['angular', 'csrfInterceptor']
         },
+        providerService: {
+            deps: ['angular', 'csrfInterceptor']
+        },
         providerApp: {
-            deps: [ 'common']
+            deps: [ 'common', 'providerService']
         }
     }
 });

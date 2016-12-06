@@ -1,21 +1,17 @@
-angular.module('providerApp', ['spring-security-csrf-token-interceptor'])
-    .controller('providerCtrl', ['$scope', '$http', function ($scope, $http) {
+var providerApp = angular.module('providerApp', ['spring-security-csrf-token-interceptor', 'providerService'])
+    providerApp.controller('providerCtrl', ['$scope', '$http', 'ProviderService', function ($scope, $http, ProviderService) {
         $scope.providers = [];
+        getProviders();
 
-        $http({
-            method: 'GET',
-            url: '/provider',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-       .success(function(data){
-           formatData(data);
-       })
-       .error(function(){
-            alert("error");
-            return null ;
-        });
+        function getProviders(){
+            ProviderService.getProviders()
+                .then(function(data){
+                    formatData(data);
+                },
+                function(errorMessage){
+                    console.log("error");
+                });
+        }
 
         var formatData = function(data){
             var response = data.providersDTOSet;
@@ -30,3 +26,4 @@ angular.module('providerApp', ['spring-security-csrf-token-interceptor'])
         };
 
     }]);
+
