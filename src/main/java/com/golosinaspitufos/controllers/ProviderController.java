@@ -1,7 +1,9 @@
 package com.golosinaspitufos.controllers;
 
 import com.golosinaspitufos.dto.ProvidersDTO;
+import com.golosinaspitufos.model.Prices_1;
 import com.golosinaspitufos.model.Provider;
+import com.golosinaspitufos.services.PricesService;
 import com.golosinaspitufos.services.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,16 +25,33 @@ public class ProviderController {
     @Autowired
     private ProviderService providerService;
 
+    @Autowired
+    private PricesService pricesService;
+
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
-    public ProvidersDTO getProviders(){
+    public ProvidersDTO getProviders() {
         List<Provider> providerList = providerService.findAllProviders();
-        for (Provider p : providerList){
-            System.out.println("Andres. Provider name: " +p.getProviderName());
+        for (Provider p : providerList) {
+            System.out.println("Andres. Provider name: " + p.getProviderName());
         }
 
         return ProvidersDTO.mapFromProvidersSetEntity(providerList);
+
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.POST)
+    public void setProviders(Provider provider2) {
+        Provider provider = new Provider();
+        provider.setId(5L);
+        provider.setProviderName("Andres Test 1");
+        provider.setProviderAddress("calle 2");
+        provider.setProviderPhone("88");
+        providerService.saveProvider(provider.getId(), provider.getProviderName(),
+                provider.getProviderAddress(), provider.getProviderPhone(), provider.getPrices_1());
     }
 
 }

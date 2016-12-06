@@ -12,13 +12,13 @@ import java.util.Set;
  */
 public class ProviderDTO {
 
-    private int id;
+    private Long id;
     private String providerName;
     private String providerAddress;
     private String providerPhone;
     private Set<ProviderPriceDTO> prices = new HashSet<ProviderPriceDTO>(0);
 
-    public ProviderDTO(int id, String providerName, String providerAddress, String providerPhone, Set<ProviderPriceDTO> prices) {
+    public ProviderDTO(Long id, String providerName, String providerAddress, String providerPhone, Set<ProviderPriceDTO> prices) {
         this.id = id;
         this.providerName = providerName;
         this.providerAddress = providerAddress;
@@ -37,11 +37,11 @@ public class ProviderDTO {
                 , provider.getProviderPhone(), providerPriceDTOs);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
