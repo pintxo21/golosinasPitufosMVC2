@@ -23,7 +23,7 @@ var providerService = angular.module('providerService', [])
 
                 $http({
                     method: 'DELETE',
-                    url: '/provider'
+                    url: '/provider',
                     data: providerId,
                     headers: {
                         "Content-Type": "application/json"
@@ -45,7 +45,7 @@ var providerService = angular.module('providerService', [])
 
                 $http({
                     method: 'POST',
-                    url: '/provider,
+                    url: '/provider',
                     headers: {
                        "Content-Type": "application/json"
                     }

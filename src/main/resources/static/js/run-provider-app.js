@@ -10,7 +10,7 @@ require.config({
         lodash: "../bower_components/lodash/dist/lodash",
         csrfInterceptor: '../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         common: 'common',
-        providerService: 'provider-service',
+        providerService: 'services/provider-service',
         providerApp: 'provider'
     },
     shim: {
